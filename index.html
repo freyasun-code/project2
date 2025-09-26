@@ -126,33 +126,32 @@
   </div>
 
   <!-- Part 1.2: Finite Difference Operator -->
-<div class="section" id="finite-difference">
-  <h3 style="margin-top:40px; text-align:center;">Part 1.2: Finite Difference Operator</h3>
-  <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
-    Here I explored the finite difference operators for edge detection. By applying Dx and Dy, I was able to approximate the gradient of the image in horizontal and vertical directions. 
-    Combining them gives the gradient magnitude, and by applying a threshold, we can highlight the edges in the image.
-  </p>
+<h3 style="margin-top:40px; text-align:center;">Part 1.2: Finite Difference Operator</h3>
+<p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
+  Here I explored the finite difference operators for edge detection. By applying Dx and Dy, I was able to approximate the gradient of the image in horizontal and vertical directions. 
+  Combining them gives the gradient magnitude, and by applying a threshold, we can highlight the edges in the image.
+</p>
 
-  <!-- 四张图并排 -->
-  <div style="display: flex; justify-content: center; gap:40px;">
-    <div style="text-align: center;">
-      <img src="Ix.jpg" alt="Ix" width="220">
-      <p>Ix (∂I/∂x)</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="Iy.jpg" alt="Iy" width="220">
-      <p>Iy (∂I/∂y)</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="grad_mag.jpg" alt="Gradient Magnitude" width="220">
-      <p>Gradient Magnitude</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="edge_img.jpg" alt="Edge Image" width="220">
-      <p>Edge Image (Thresholded)</p>
-    </div>
+<!-- 四张图并排 -->
+<div style="display: flex; justify-content: center; gap:40px; margin-top:20px;">
+  <div style="text-align: center;">
+    <img src="Ix.jpg" alt="Ix" width="220">
+    <p>Ix (∂I/∂x)</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="Iy.jpg" alt="Iy" width="220">
+    <p>Iy (∂I/∂y)</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="grad_mag.jpg" alt="Gradient Magnitude" width="220">
+    <p>Gradient Magnitude</p>
+  </div>
+  <div style="text-align: center;">
+    <img src="edge_img.jpg" alt="Edge Image" width="220">
+    <p>Edge Image (Thresholded)</p>
   </div>
 </div>
+
 
 
   <!-- Part 1.3: Derivative of Gaussian (DoG) Filter -->
