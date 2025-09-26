@@ -155,9 +155,40 @@
 
 
 
-  <!-- Part 1.3: Derivative of Gaussian (DoG) Filter -->
-  <h3 style="margin-top:40px; text-align:center;">Part 1.3: Derivative of Gaussian (DoG) Filter</h3>
-  <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
-    In this section, I implemented the Derivative of Gaussian filter to combine smoothing and differentiation in one operation. This allows edge detection while reducing noise in the image.
-  </p>
+<!-- Part 1.3: Derivative of Gaussian (DoG) Filter -->
+<h3 style="margin-top:40px; text-align:center;">Part 1.3: Derivative of Gaussian (DoG) Filter</h3>
+<p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
+  In this section, I implemented the Derivative of Gaussian filter to combine smoothing and differentiation in one operation. This allows edge detection while reducing noise in the image.
+</p>
+
+<!-- 图片展示区域 -->
+<div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; max-width:900px; margin:auto;">
+
+  <!-- 第一行三张 -->
+  <div style="text-align:center;">
+    <img src="Blur.jpg" alt="Blur" style="width:250px; border:1px solid #ccc; border-radius:8px;">
+    <p>Blur</p>
+  </div>
+
+  <div style="text-align:center;">
+    <img src="Ix_blur.jpg" alt="Ix (Blurred)" style="width:250px; border:1px solid #ccc; border-radius:8px;">
+    <p>Ix (Blurred)</p>
+  </div>
+
+  <div style="text-align:center;">
+    <img src="Iy_blur.jpg" alt="Iy (Blurred)" style="width:250px; border:1px solid #ccc; border-radius:8px;">
+    <p>Iy (Blurred)</p>
+  </div>
+
+  <!-- 第二行两张 -->
+  <div style="text-align:center;">
+    <img src="GradMag_blur.jpg" alt="Grad Mag (Blurred)" style="width:250px; border:1px solid #ccc; border-radius:8px;">
+    <p>Grad Mag (Blurred)</p>
+  </div>
+
+  <div style="text-align:center;">
+    <img src="GradMag_DoG.jpg" alt="Grad Mag (DoG)" style="width:250px; border:1px solid #ccc; border-radius:8px;">
+    <p>Grad Mag (DoG)</p>
+  </div>
+
 </div>
