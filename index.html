@@ -97,7 +97,8 @@
   <!-- Part 1.1: Convolutions from Scratch -->
   <h3 style="margin-top:20px; text-align:center;">Part 1.1: Convolutions from Scratch!</h3>
 
-<p>We first implement convolution manually to build intuition about how it works. Below are two implementations: one using four nested loops and another using two loops with NumPy operations.</p>
+<p>
+  I first implement convolution manually to build intuition about how it works. Below are two implementations: one using four nested loops and another using two loops with NumPy operations.</p>
 
 <h3>four for loops</h3>
   <div style="display:flex; justify-content:center; margin:20px 0;">
@@ -255,7 +256,9 @@ Comparing these results with the finite difference method, the Gaussian smoothin
 <!-- Part 2.1: Image "Sharpening" -->
 <h3 style="margin-top:30px; text-align:center;">Part 2.1: Image "Sharpening"</h3>
 <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
-  In this section, I applied the unsharp masking technique. By subtracting the low-frequency content from the original image and then adding it back with a scale, we can enhance high-frequency details and make the image look sharper.
+  Unsharp masking sharpens an image by combining blur filtering with high frequencies. A Gaussian blur removes high-frequency details, and subtracting this blurred image from the original isolates the high-frequency components (edges and fine details). Adding these back produces the sharpened result.
+
+On the Taj Mahal image, the blurred version looks smoother, the high-frequency image shows edges, and the sharpened image enhances detail and contrast. Small factors give subtle sharpening, while large ones produce strong edges but may introduce artifacts.
 </p>
 
 <!-- 三张图并排 -->
