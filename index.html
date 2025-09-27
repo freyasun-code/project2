@@ -145,15 +145,9 @@ def conv2d_two_loops(image, kernel):
     return out
 </code></pre>
 
-<p>
+<p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
 When comparing with <code>scipy.signal.convolve2d</code>, we find that the convolution results are identical, confirming that our loop implementations are correct. In terms of runtime, <code>scipy.signal.convolve2d</code> is the fastest, the two-loop version is slightly slower, and the four-loop version is the slowest. Regarding boundary handling, both of our implementations use zero padding, while <code>convolve2d</code> provides multiple options for handling boundaries. In this experiment, we also chose zero padding for consistency.
 </p>
-
-  
-  <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
-    In this section, I implemented convolution operations from scratch using numpy. I created a 9x9 box filter and finite difference operators (Dx and Dy) to explore basic image filtering. 
-    The results include the original grayscale image, blurred image using the box filter, horizontal and vertical edge detection, and the combined edge magnitude.
-  </p>
 
 <!-- 5 张图分两行 -->
 <div style="display: flex; justify-content: center; gap:30px; flex-wrap: wrap; margin-top:20px;">
@@ -185,8 +179,8 @@ When comparing with <code>scipy.signal.convolve2d</code>, we find that the convo
   <!-- Part 1.2: Finite Difference Operator -->
 <h3 style="margin-top:40px; text-align:center;">Part 1.2: Finite Difference Operator</h3>
 <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
-  Here I explored the finite difference operators for edge detection. By applying Dx and Dy, I was able to approximate the gradient of the image in horizontal and vertical directions. 
-  Combining them gives the gradient magnitude, and by applying a threshold, we can highlight the edges in the image.
+  By applying Dx and Dy, I was able to approximate the gradient of the image in horizontal and vertical directions. 
+  The goal was to suppress most of the noise while still preserving all the meaningful edges. I chose a threshold value of 80 which was done qualitatively by trying different values and observing the results. 
 </p>
 
 <!-- 四张图并排 -->
