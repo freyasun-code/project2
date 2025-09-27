@@ -101,29 +101,32 @@
     The results include the original grayscale image, blurred image using the box filter, horizontal and vertical edge detection, and the combined edge magnitude.
   </p>
 
-  <!-- 5 张图并排 -->
-  <div style="display: flex; justify-content: center; gap:30px; flex-wrap: wrap; margin-top:20px;">
-    <div style="text-align: center;">
-      <img src="original_gray.jpg" alt="Original Gray" width="200">
-      <p>Original (Gray)</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="blurred_box9.jpg" alt="Blurred Box Filter" width="200">
-      <p>Blurred (9x9 Box Filter)</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="edge_dx.jpg" alt="Edge Dx" width="200">
-      <p>Edge Dx</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="edge_dy.jpg" alt="Edge Dy" width="200">
-      <p>Edge Dy</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="edge_combined.jpg" alt="Edge Combined" width="200">
-      <p>Edges (Combined Magnitude)</p>
-    </div>
+<!-- 5 张图分两行 -->
+<div style="display: flex; justify-content: center; gap:30px; flex-wrap: wrap; margin-top:20px;">
+  <!-- 第一行：2 张 -->
+  <div style="flex: 0 0 200px; text-align: center;">
+    <img src="original_gray.jpg" alt="Original Gray" width="200">
+    <p>Original (Gray)</p>
   </div>
+  <div style="flex: 0 0 200px; text-align: center;">
+    <img src="blurred_box9.jpg" alt="Blurred Box Filter" width="200">
+    <p>Blurred (9x9 Box Filter)</p>
+  </div>
+
+  <!-- 第二行：3 张 -->
+  <div style="flex: 0 0 200px; text-align: center;">
+    <img src="edge_dx.jpg" alt="Edge Dx" width="200">
+    <p>Edge Dx</p>
+  </div>
+  <div style="flex: 0 0 200px; text-align: center;">
+    <img src="edge_dy.jpg" alt="Edge Dy" width="200">
+    <p>Edge Dy</p>
+  </div>
+  <div style="flex: 0 0 200px; text-align: center;">
+    <img src="edge_combined.jpg" alt="Edge Combined" width="200">
+    <p>Edges (Combined Magnitude)</p>
+  </div>
+</div>
 
   <!-- Part 1.2: Finite Difference Operator -->
 <h3 style="margin-top:40px; text-align:center;">Part 1.2: Finite Difference Operator</h3>
@@ -227,25 +230,26 @@
 <!-- 图片展示区域 -->
 <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; max-width:1100px; margin:auto;">
 
-  <div style="text-align:center; width:250px;">
-    <img src="myimg.jpg" alt="Original" style="width:250px; border:1px solid #ccc; border-radius:8px;">
-    <div style="margin-top:8px; font-size:16px;">Original</div>
-  </div>
+<div style="text-align:center; width:200px;">
+  <img src="myimg.jpg" alt="Original" style="width:200px; border:1px solid #ccc; border-radius:8px;">
+  <div style="margin-top:8px; font-size:16px;">Original</div>
+</div>
 
-  <div style="text-align:center; width:250px;">
-    <img src="myBlurred_Gaussian.jpg" alt="Blurred (Gaussian)" style="width:250px; border:1px solid #ccc; border-radius:8px;">
-    <div style="margin-top:8px; font-size:16px;">Blurred (Gaussian)</div>
-  </div>
+<div style="text-align:center; width:200px;">
+  <img src="myBlurred_Gaussian.jpg" alt="Blurred (Gaussian)" style="width:200px; border:1px solid #ccc; border-radius:8px;">
+  <div style="margin-top:8px; font-size:16px;">Blurred (Gaussian)</div>
+</div>
 
-  <div style="text-align:center; width:250px;">
-    <img src="myHigh_Frequencies.jpg" alt="High Frequencies" style="width:250px; border:1px solid #ccc; border-radius:8px;">
-    <div style="margin-top:8px; font-size:16px;">High Frequencies</div>
-  </div>
+<div style="text-align:center; width:200px;">
+  <img src="myHigh_Frequencies.jpg" alt="High Frequencies" style="width:200px; border:1px solid #ccc; border-radius:8px;">
+  <div style="margin-top:8px; font-size:16px;">High Frequencies</div>
+</div>
 
-  <div style="text-align:center; width:250px;">
-    <img src="mySharpened.jpg" alt="Sharpened" style="width:250px; border:1px solid #ccc; border-radius:8px;">
-    <div style="margin-top:8px; font-size:16px;">Sharpened</div>
-  </div>
+<div style="text-align:center; width:200px;">
+  <img src="mySharpened.jpg" alt="Sharpened" style="width:200px; border:1px solid #ccc; border-radius:8px;">
+  <div style="margin-top:8px; font-size:16px;">Sharpened</div>
+</div>
+
 
 </div>
 
@@ -333,7 +337,7 @@ In this part, we create hybrid images by combining the high-frequency components
 
     <!-- First Image -->
     <figure style="margin:0; text-align:center;">
-        <img src="Idle.jpg" alt="Idle" width="200">
+        <img src="idle.jpg" alt="Idle" width="200">
         <figcaption style="margin-top:5px;">Idle</figcaption>
     </figure>
 
@@ -342,7 +346,7 @@ In this part, we create hybrid images by combining the high-frequency components
 
     <!-- Second Image -->
     <figure style="margin:0; text-align:center;">
-        <img src="Pig.jpg" alt="Pig" width="200">
+        <img src="pig.jpg" alt="Pig" width="200">
         <figcaption style="margin-top:5px;">Pig</figcaption>
     </figure>
 
