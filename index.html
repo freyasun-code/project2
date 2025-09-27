@@ -249,5 +249,44 @@
 
 </div>
 
+<h2>Part 2.2: Hybrid Images</h2>
 
+<p>
+In this part, we create hybrid images by combining the high-frequency components of one image with the low-frequency components of another. The process involves aligning the input images, extracting the respective frequency components using Gaussian filtering, and then summing them to produce the final hybrid image. To better understand the frequency content at each stage, we also show the log-magnitude of the Fourier transforms for the input images, the filtered images, and the final hybrid image.
+</p>
+
+<!-- 第一行：原图1 → 对齐1 → FFT1 -->
+<div style="text-align:center; margin-bottom: 20px;">
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="Original_Image_1_Highfreq.jpg" width="200"><br>
+        <figcaption>Original Image 1</figcaption>
+    </figure>
+    <span style="font-size:30px; vertical-align:middle;">&#8594;</span>
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="Aligned_Image_1.jpg" width="200"><br>
+        <figcaption>Aligned Image 1</figcaption>
+    </figure>
+    <span style="font-size:30px; vertical-align:middle;">&#8594;</span>
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="FFT_Input_Image_1.jpg" width="200"><br>
+        <figcaption>FFT Image 1</figcaption>
+    </figure>
+</div>
+
+<!-- 第二行：原图2 → 对齐2 → FFT2 -->
+<div style="text-align:center; margin-bottom: 20px;">
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="Original_Image_2_Lowfreq.jpg" width="200"><br>
+        <figcaption>Original Image 2</figcaption>
+    </figure>
+    <span style="font-size:30px; vertical-align:middle;">&#8594;</span>
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="Aligned_Image_2.jpg" width="200"><br>
+        <figcaption>Aligned Image 2</figcaption>
+    </figure>
+    <span style="font-size:30px; vertical-align:middle;">&#8594;</span>
+    <figure style="display:inline-block; margin:0 10px;">
+        <img src="FFT_Input_Image_2.jpg" width="200"><br>
+
+  
 </div>
