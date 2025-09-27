@@ -327,5 +327,89 @@ In this part, we create hybrid images by combining the high-frequency components
     </figure>
 </div>
 
+  <h1>Part 2.4: Multiresolution Blending (a.k.a. the oraple!)</h1>
+
+<div class="description">
+    <p>
+        在这一部分，我实现了苹果和橘子的多分辨率融合（Multiresolution Blending）。 
+        我使用了 <strong>平滑的 Gaussian mask</strong> 来控制左右图像的融合区域，并且对每一层图像构建了 <strong>Laplacian 金字塔</strong>（带通滤波），通过逐层融合高频和低频信息，实现了自然平滑的过渡。
+    </p>
+    <p>
+        简单来说，我的流程如下：
+        <ol>
+            <li>对原图像构建 Gaussian stack，每层进行不同程度的高斯模糊。</li>
+            <li>通过相邻 Gaussian 层相减得到带通的 Laplacian stack。</li>
+            <li>构建平滑的 mask，用于左右图像的分区融合。</li>
+            <li>逐层使用 mask 对 Laplacian 层进行加权融合。</li>
+            <li>从最低频层向上累加，得到最终融合图像。</li>
+        </ol>
+    </p>
+    <p>
+        最终成功实现了苹果和橘子的平滑融合，既保留了每层的细节纹理，又保持了自然的颜色过渡。
+    </p>
+</div>
+
+<!-- Laplacian L0 -->
+<div class="image-row">
+    <div class="image-container">
+        <img src="Apple_L0.jpg" alt="Apple L0">
+        <div class="caption">Apple L0</div>
+    </div>
+    <div class="image-container">
+        <img src="Orange_L0.jpg" alt="Orange L0">
+        <div class="caption">Orange L0</div>
+    </div>
+    <div class="image-container">
+        <img src="Blend_L0.jpg" alt="Blend L0">
+        <div class="caption">Blend L0</div>
+    </div>
+</div>
+
+<!-- Laplacian L2 -->
+<div class="image-row">
+    <div class="image-container">
+        <img src="Apple_L2.jpg" alt="Apple L2">
+        <div class="caption">Apple L2</div>
+    </div>
+    <div class="image-container">
+        <img src="Orange_L2.jpg" alt="Orange L2">
+        <div class="caption">Orange L2</div>
+    </div>
+    <div class="image-container">
+        <img src="Blend_L2.jpg" alt="Blend L2">
+        <div class="caption">Blend L2</div>
+    </div>
+</div>
+
+<!-- Laplacian L4 -->
+<div class="image-row">
+    <div class="image-container">
+        <img src="Apple_L4.jpg" alt="Apple L4">
+        <div class="caption">Apple L4</div>
+    </div>
+    <div class="image-container">
+        <img src="Orange_L4.jpg" alt="Orange L4">
+        <div class="caption">Orange L4</div>
+    </div>
+    <div class="image-container">
+        <img src="Blend_L4.jpg" alt="Blend L4">
+        <div class="caption">Blend L4</div>
+    </div>
+</div>
+
+<!-- Original Masked + Final Blend -->
+<div class="image-row">
+    <div class="image-container">
+        <img src="Apple_masked.jpg" alt="Apple Masked">
+        <div class="caption">Apple * Mask</div>
+    </div>
+    <div class="image-container">
+        <img src="Orange_masked.jpg" alt="Orange Masked">
+        <div class="caption">Orange * (1-Mask)</div>
+    </div>
+    <div class="image-container">
+        <img src="Final_blend.jpg" alt="Final Blend">
+        <div class="caption">Final Blend</div>
+    </div>
   
 </div>
