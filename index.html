@@ -96,28 +96,13 @@
 
   <!-- Part 1.1: Convolutions from Scratch -->
   <h3 style="margin-top:20px; text-align:center;">Part 1.1: Convolutions from Scratch!</h3>
-  <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Convolution Implementations with NumPy</title>
-  <style>
-    body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial; max-width:900px; margin:32px auto; line-height:1.6; color:#111}
-    pre{background:#f6f8fa;border:1px solid #e1e4e8;padding:12px;overflow:auto}
-    code{font-family:SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace}
-    h1,h2{margin-top:24px}
-    .meta{font-size:14px;color:#555}
-    table{border-collapse:collapse;margin-top:12px}
-    table,th,td{border:1px solid #ddd;padding:8px}
-  </style>
-</head>
-<body>
-  <h1>Convolution Implementations with NumPy</h1>
-  <p class="meta">This page contains two NumPy-only implementations of 2D convolution (four nested loops and two loops), a short comparison with <code>scipy.signal.convolve2d</code>, and notes on runtime and boundary handling.</p>
+  <h2>Part 1.1: Convolutions from Scratch</h2>
 
-  <h2>four for loops</h2>
-  <pre><code>def conv2d_four_loops(image, kernel):
+<p>We first implement convolution manually to build intuition about how it works. Below are two implementations: one using four nested loops and another using two loops with NumPy operations.</p>
+
+<h3>four for loops</h3>
+<pre><code class="language-python">
+def conv2d_four_loops(image, kernel):
     H, W = image.shape
     kH, kW = kernel.shape
     pad_h = kH // 2
@@ -136,10 +121,12 @@
                 for n in range(kW):
                     s += padded[i+m, j+n] * kernel[m, n]
             out[i, j] = s
-    return out</code></pre>
+    return out
+</code></pre>
 
-  <h2>two for loops</h2>
-  <pre><code>def conv2d_two_loops(image, kernel):
+<h3>two for loops</h3>
+<pre><code class="language-python">
+def conv2d_two_loops(image, kernel):
     H, W = image.shape
     kH, kW = kernel.shape
     pad_h = kH // 2
@@ -155,46 +142,12 @@
         for j in range(W):
             region = padded[i:i+kH, j:j+kW]
             out[i, j] = np.sum(region * kernel)
-    return out</code></pre>
+    return out
+</code></pre>
 
-  <h2>Comparison with <code>scipy.signal.convolve2d</code></h2>
-  <p>When compared on the same input (same image and kernel), the numerical output of both custom functions and <code>scipy.signal.convolve2d</code> (with matching parameters) is identical up to floating point precision. This confirms that the algorithmic logic in the for-loop implementations is correct.</p>
-
-  <h2>Runtime</h2>
-  <p>In terms of execution speed, <code>scipy.signal.convolve2d</code> is the fastest. It is implemented and optimized in C and may use fast algorithms depending on the size of the kernel and arguments. The two-loop NumPy implementation is slower but reasonably straightforward; it leverages NumPy element-wise operations inside the inner loop (the multiplication and <code>np.sum</code>) which are implemented in C. The four-loop implementation is the slowest because it repeatedly performs Python-level operations in the innermost loops, which incur large overhead.</p>
-
-  <h2>Boundary handling</h2>
-  <p>Both custom implementations in this page explicitly perform zero padding using <code>np.pad(..., mode='constant')</code>, so the convolution uses zero (constant) padding at the boundaries.</p>
-  <p><code>scipy.signal.convolve2d</code> supports several boundary modes controlled by the <code>boundary</code> and <code>fillvalue</code> arguments. Common modes include:</p>
-  <ul>
-    <li><code>boundary='fill'</code> (with <code>fillvalue=0</code>): pads with a constant value (zero if <code>fillvalue</code> is 0).</li>
-    <li><code>boundary='symm'</code>: symmetric reflection at the edges.</li>
-    <li><code>boundary='wrap'</code>: wrap-around (periodic) boundary.</li>
-  </ul>
-  <p>To make the comparison fair, use <code>boundary='fill'</code> and <code>fillvalue=0</code> for <code>convolve2d</code> when testing against these implementations.</p>
-
-  <h2>Short summary table</h2>
-  <table>
-    <tr><th>Method</th><th>Correctness</th><th>Speed</th><th>Boundary default</th></tr>
-    <tr><td>conv2d_four_loops</td><td>Correct</td><td>Slowest (pure Python loops)</td><td>Zero padding (explicit)</td></tr>
-    <tr><td>conv2d_two_loops</td><td>Correct</td><td>Moderate (uses NumPy ops in inner loop)</td><td>Zero padding (explicit)</td></tr>
-    <tr><td>scipy.signal.convolve2d</td><td>Correct</td><td>Fastest (C-optimized)</td><td>Multiple options (fill, symm, wrap) — use <code>fill</code> for zero padding</td></tr>
-  </table>
-
-  <h2>How to put this on GitHub</h2>
-  <ol>
-    <li>Copy the contents of this file and save it as <code>index.html</code> on your local computer.</li>
-    <li>Create or open your Git repository locally, add the file, and commit:
-      <pre><code>git add index.html
-git commit -m "Add convolution implementations and comparison"
-git push origin main</code></pre>
-    </li>
-    <li>Alternatively, use the GitHub web UI: open your repo, click <em>Add file &gt; Create new file</em>, name it <code>index.html</code>, paste the contents, then commit.</li>
-  </ol>
-
-  <p>If you want, I can also create a downloadable <code>index.html</code> file for you or prepare a short README describing how to run the tests comparing outputs and timing. Tell me which you prefer.</p>
-</body>
-</html>
+<p>
+When comparing with <code>scipy.signal.convolve2d</code>, we find that the convolution results are identical, confirming that our loop implementations are correct. In terms of runtime, <code>scipy.signal.convolve2d</code> is the fastest, the two-loop version is slightly slower, and the four-loop version is the slowest. Regarding boundary handling, both of our implementations use zero padding, while <code>convolve2d</code> provides multiple options for handling boundaries. In this experiment, we also chose zero padding for consistency.
+</p>
 
   
   <p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
