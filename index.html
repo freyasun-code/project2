@@ -311,8 +311,10 @@ On the Taj Mahal image, the blurred version looks smoother, the high-frequency i
 
 <h2>Part 2.2: Hybrid Images</h2>
 
-<p>
-In this part, we create hybrid images by combining the high-frequency components of one image with the low-frequency components of another. The process involves aligning the input images, extracting the respective frequency components using Gaussian filtering, and then summing them to produce the final hybrid image. To better understand the frequency content at each stage, we also show the log-magnitude of the Fourier transforms for the input images, the filtered images, and the final hybrid image.
+<p style="text-align:left; max-width:800px; margin:auto; margin-bottom:20px; font-size:18px;">
+In this part, we create hybrid images by combining the high-frequency components of one image with the low-frequency components of another.
+  High-pass cutoff (σ_high) = 8; 
+Low-pass cutoff (σ_low)  = 10
 </p>
 
 <!-- 第一行：原图1 → 对齐1 → FFT1 -->
